@@ -2,28 +2,38 @@
 <!doctype html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Kurale" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
   </head>
     <body>
-      <h1>Please type in your username and password:</h1>
-      <h2>Log In:</h2>
-      <form action="/" method="post">
-        <fieldset>
 
-          <label name="username">Username</label>
-          <input type="text" name="username" placeholder="username">
+    <h1>Sign into Gabble:</h1>
+
+      <form action="/login" method="post">
+
+        <h2>Log In:</h2>
+
+        <fieldset>
+          <label name="username">Username: </label>
+          <input type="text" name="username" placeholder="   username">
           <br>
           <br>
-          <label for="password">Password</label>
-          <input type="text" name="password" placeholder="password">
+          <label for="password">Password: </label>
+          <input type="text" name="password" placeholder="   password">
           <br>
           <br>
           <div class="form__submit-button">
               <input type="submit">
           </div>
+          </form>
           <h4>Not a Member of Gabble? Sign up Now!</h4>
-          <button type="button" name="Sign-Up">Sign Up!</button>
+          <form action="/signup" method="post">
+            <button type="submit" name="signup">Sign Up!</button>
+          </form>
+          </fieldset>
 
-        </fieldset>
-      </form>
+
+
+
     </body>
 </html>

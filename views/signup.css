@@ -1,0 +1,39 @@
+
+body {
+  background-image: url(goatsglasses.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container {
+  background-color: #caddfc;
+  width: 29%;
+  height: 65%;
+  padding: 3%;
+  font-family: 'Kurale';
+
+}
+
+h1 {
+  font-size: 45px;
+}
+h3 {
+  font-size: 25px;
+}
+
+form input {
+  font-size: 25px;
+  font-family: 'Kurale';
+  height: 32px;
+  width: 295px;
+}
+
+form button {
+  font-family: 'Kurale';
+  font-size: 18px;
+  margin-left: 19%;
+  margin-top: 5%;
+  height: 35px;
+  width: 145px;
+  border-radius: 5%;
+}

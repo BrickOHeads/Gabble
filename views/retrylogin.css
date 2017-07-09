@@ -1,0 +1,77 @@
+@@font-face {
+  font-family: 'Kurale';
+  src: url('https://fonts.googleapis.com/css?family=Kurale');
+}
+body{
+  font-family: 'Kurale', serif;
+  background-color: #91112f;
+}
+
+form button {
+    font-family: 'Kurale', serif;
+  font-size: 20px;
+  background-color: #d8cbce;
+  border-radius: 5%;
+  padding: 5px;
+  height: 50px;
+  width: 15%;
+}
+
+img {
+  display: block;
+  margin-left: 13%;
+  height: 550px;
+  width: 75%;
+}
+h1{
+  font-family: 'Kurale', serif;
+  margin-top: -500px;
+  font-size: 50px;
+  color: white;
+}
+h1, h2{font-family: 'Kurale', serif;
+text-align: center;
+}
+
+.boxed {
+  text-align: center;
+  margin-top: 35%;
+  margin-left: 10%;
+  padding: 4%;
+  float: center;
+  width: 75%;
+  background-color: #d8cbce;
+  margin-bottom: 5%;
+}
+.boxed label {
+  font-size: 30px;
+}
+
+.boxed input {
+  height: 35px;
+  width: 25%;
+}
+.form_submit-button input {
+  font-size: 25px;
+  height: 50px;
+  width: 15%;
+  background-color: #91112f;
+  color: white;
+  border-radius: 5%;
+}
+.bottom_box {
+    margin-left: 30%;
+    padding: 2%;
+    background-color: #d8cbce;
+    width: 35%;
+}
+.bottom_box button {
+  padding: 5px;
+  border-radius: 5%;
+  margin-left: 38%;
+  background-color: #91112f;
+  color: white;
+  font-size: 15px;
+  height: 50px;
+  width: 15%;
+}

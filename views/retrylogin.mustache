@@ -3,24 +3,41 @@
   <head>
     <meta charset="utf-8">
     <title>Wrong Password</title>
+    <link href="https://fonts.googleapis.com/css?family=Kurale" rel="stylesheet">
+  <link rel="stylesheet" href="/retrylogin.css">
   </head>
   <body>
-    <h1>Uh Oh!</h1>
+    <nav>
+      <form class="back_login" action="/redirectlogin" method="post">
+        <button type="submit" name="login">Back to Login</button>
+      </form>
+
+    </nav>
+    <img src="pygmy-goat.jpg" alt="Pygmy Goat">
+<h1>Uh Oh!</h1>
+    <div class="boxed">
+
     <h2>It appears either your password or username are incorrect, please try again:
     </h2>
-    <label name="username">Username</label>
+    <label name="username">Username: </label>
     <input type="text" name="username" placeholder="username">
     <br>
     <br>
-    <label for="password">Password</label>
+    <label for="password">Password: </label>
     <input type="text" name="password" placeholder="password">
     <br>
     <br>
-    <div class="form__submit-button">
-        <input type="submit">
-    </div>
+    <form action="/retrylogin" method="post">
+      <div class="form_submit-button">
+          <input type="submit">
+      </div>
+    </form>
 
-    <h2>Are you a Member?? Signing up is easy! </h2>
-    <button type="button" name="signup">Click here to redirect to our Signup Page!</button>
+  </div>
+  <div class = "bottom_box">
+    <h2>Are you a Member? Signing up is easy! </h2>
+    <form action="/signup" method="post">
+      <button type="submit" name="signup">Sign Up</button>
+    <div>
   </body>
 </html>

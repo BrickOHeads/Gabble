@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gabble</title>
+    <link rel="stylesheet" href="signup.css">
+    <link href="https://fonts.googleapis.com/css?family=Kurale" rel="stylesheet">
+  </head>
+  <body>
+  <div class = "container">
+    <h1>Welcome to Gabble!</h1>
+    <h3>Congratulations on choosing to be a part of the Gabble community!</h3>
+    <h2> Fill out the short form.</h2>
+
+<div class= "signupform_container">
+  <form class="" action="/newUser" method="post">
+    <p>Choose a Username:</p>
+    <input type="text" name="username"></input>
+    <p>First Name: </p>
+    <input type="text" name="name" value=""></input>
+    <p>Password</p>
+    <input type="password" name="password" value=""></input>
+    <p>Confirm Password:</p>
+    <input type="password" name="confirmpassword" value=""></input>
+    <p>Your Email Address:</p>
+    <input type="text" name="email" value=""></input> <br>
+    <button type="submit" name="button">Submit</button>
+  </form>
+</div>
+<ul>
+  {{#user}}
+  <li>{{name}}{{username}}{{email}}{{password}}</li>
+  {{/user}}
+</ul>
+
+</div>
+  </body>
+</html>

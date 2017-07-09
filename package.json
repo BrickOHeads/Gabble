@@ -16,6 +16,8 @@
     "express-validator": "^3.2.0",
     "mustache-express": "^1.2.5",
     "node": "0.0.0",
+    "passport": "^0.3.2",
+    "passport-oneprofile": "0.0.2",
     "pg": "^6.4.0",
     "sequelize": "^4.2.1"
   }

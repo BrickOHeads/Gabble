@@ -1,0 +1,28 @@
+
+// comments added to welcome.mustache page
+
+// need a foreign key to handle foreign user id
+
+// make sure confirm password and password match
+// make sure username is not taken
+//allow for likes and store in a database
+//give user ability to delete posts
+//get the retry page to properly let me log in..
+//declare username to be mustached in to {{username}} in welcome.mustache
+
+{{#likes}}
+ul class likes
+li post: {{postID}}
+li {{title}}
+/posts}}
+
+
+app.get(/likedby)
+
+models.like.findall(
+include: [{
+model; models.post,
+as 'post'
+}.{
+
+}]

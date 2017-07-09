@@ -3,74 +3,97 @@ const parseurl = require('parseurl');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const mustacheExpress = require('mustache-express');
-const data = require('./data.js');
+const users = require('./models/users.js');
 const app = express();
+const models = require("./models");
 
+app.use (session ({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+}));
 
 app.engine('mustache', mustacheExpress());
 app.set('views', './views');
 app.set('view engine', 'mustache');
-
+app.use(express.static('./views'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true
-}));
+app.post('/newUser', function(req,res){
+  const user = models.users.build({
+    name: req.body.name,
+    username: req.body.username,
+    password: req.body.password,
+    email: req.body.email
+  })
+  user.save();
+  res.render('index');
+});
 
-app.use(function (req, res, next) {
-  var views = req.session.views;
-
-  if (!views) {
-    views = req.session.views = {};
-  }
-  var pathname = parseurl(req).pathname;
-  views[pathname] = (views[pathname] || 0) + 1
-  next();
-})
-
-function authenticate(req, username, password){
-  var authenticatedUser = data.users.find(function (user) {
-    if (username === user.username && password === user.password) {
-      req.session.authenticated = true;
-      console.log('User & Password Authenticated');
-    } else {
-      return false
+app.post('/login', function (req,res){
+  let username = req.body.username
+  let password = req.body.password
+  models.users.findOne({
+    where: {
+      username: username,
+      password: password
     }
-  });
+}).then(users => {
+    if (users.password === password && users.username === username)
+      req.session.username = username;
+      req.session.usersId = users.id;
+      req.session.authenticated = true;
+      res.redirect('/welcome');
+  }).catch(error => {
+    req.session.authenticated = false;
+    res.redirect('/retrylogin');
+  })
   console.log(req.session);
   return req.session;
-}
+});
 
 app.get('/', function (req, res){
   res.render('index');
 });
 
+app.post('/redirectlogin',function (req, res){
+  res.redirect('/');
+});
+
+//redirect to the login page again
 app.post('/logout', function(req, res) {
   req.session.authenticated = false;
-  console.log(req.session);
   res.redirect('/');
+});
+
+//redirect to the signup page!
+app.post('/signup', function(req, res) {
+  res.render('signup')
 })
 
+//if you fail to enter correct information and do not authenticate!
 app.get('/retrylogin', function (req, res){
   res.render('retrylogin');
 });
 
-app.post('/', function(req, res){
-  var username = req.body.username;
-  var password = req.body.password;
-  authenticate(req, username, password);
-  if (req.session && req.session.authenticated){
-    res.render('welcome', { username: username });
-  } else {
-    res.redirect('/retrylogin');
-  }
+
+app.get('/welcome', function (req, res){
+  const username =req.session.username;
+  models.post.findAll({}).then(function(posts){
+    res.render('welcome', {username: username, post: posts});
+  })
+});
+
+// post_input from welcome.mustache file
+app.post('/post_input', function (req,res){
+  const post = models.post.build({
+              body: req.body.postInput
+              });
+              post.save();
+    res.redirect('/welcome');
 })
 
-// var logOut = document.getElementById('log-out').addEventListener("click", function clear(){this.reload();
-// });
 app.listen(3000, function(){
   console.log('Started express application!')
 });
