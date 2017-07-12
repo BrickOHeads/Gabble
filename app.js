@@ -94,6 +94,6 @@ app.post('/post_input', function (req,res){
     res.redirect('/welcome');
 })
 
-app.listen(3000, function(){
+app.listen(process.env.PORT || 3000, function(){
   console.log('Started express application!')
 });
