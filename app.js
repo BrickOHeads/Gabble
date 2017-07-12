@@ -6,7 +6,7 @@ const mustacheExpress = require('mustache-express');
 const users = require('./models/users.js');
 const app = express();
 const models = require("./models");
-
+const pg = require('pg');
 app.use (session ({
   secret: 'keyboard cat',
   resave: false,

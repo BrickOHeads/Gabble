@@ -14,9 +14,10 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "root",
+    "use_env_variable": "DATABASE_URL",
+    "username": "brittmac",
     "password": null,
-    "database": "database_production",
+    "database": "gabble",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
