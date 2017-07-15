@@ -19,6 +19,6 @@
     "passport": "^0.3.2",
     "passport-oneprofile": "0.0.2",
     "pg": "^6.4.0",
-    "sequelize": "^4.2.1"
+    "sequelize": "^4.3.1"
   }
 }

@@ -49,7 +49,7 @@ app.post('/login', function (req,res){
     req.session.authenticated = false;
     res.redirect('/retrylogin');
   })
-  console.log(req.session);
+  // console.log(req.session);
   return req.session;
 });
 
@@ -57,7 +57,7 @@ app.get('/', function (req, res){
   res.render('index');
 });
 
-app.post('/redirectlogin',function (req, res){
+app.post('/redirectlogin', function (req, res){
   res.redirect('/');
 });
 
@@ -80,7 +80,7 @@ app.get('/retrylogin', function (req, res){
 
 app.get('/welcome', function (req, res){
   const username =req.session.username;
-  models.post.findAll({}).then(function(posts){
+  models.post.findAll({order: [['id', 'DESC']]}).then(function(posts){
     res.render('welcome', {username: username, post: posts});
   })
 });
@@ -88,12 +88,14 @@ app.get('/welcome', function (req, res){
 // post_input from welcome.mustache file
 app.post('/post_input', function (req,res){
   const post = models.post.build({
-              body: req.body.postInput
+              body: req.body.postInput,
               });
               post.save();
     res.redirect('/welcome');
 })
 
+
+// for the
 app.listen(process.env.PORT || 3000, function(){
   console.log('Started express application!')
 });

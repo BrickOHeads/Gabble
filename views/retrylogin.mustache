@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Wrong Password</title>
     <link href="https://fonts.googleapis.com/css?family=Kurale" rel="stylesheet">
-  <link rel="stylesheet" href="/retrylogin.css">
+  <link rel="stylesheet" href="/css/retrylogin.css">
   </head>
   <body>
     <nav>
@@ -19,6 +19,7 @@
 
     <h2>It appears either your password or username are incorrect, please try again:
     </h2>
+    <form action="/login" method="post">
     <label name="username">Username: </label>
     <input type="text" name="username" placeholder="username">
     <br>
@@ -27,7 +28,6 @@
     <input type="text" name="password" placeholder="password">
     <br>
     <br>
-    <form action="/retrylogin" method="post">
       <div class="form_submit-button">
           <input type="submit">
       </div>
